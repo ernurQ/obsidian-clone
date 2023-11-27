@@ -27,19 +27,37 @@ export class Note {
         document.querySelector('.tabs-list').append(tab)
     }
     _renderNoteContent() {
-        const noteHeader = document.createElement('input')
-        noteHeader.classList.add('note__header')
-        noteHeader.type = 'text'
-        noteHeader.value = this.title
-
-        const noteContent = document.createElement('textarea')
-        noteContent.classList.add('note__content')
-        noteContent.value = this.content
-
+        // const noteTitle = document.createElement('input')
+        // noteTitle.classList.add('note__title')
+        // noteTitle.type = 'text'
+        // noteTitle.value = this.title
+        //
+        // const closeButton = document.createElement('button')
+        // closeButton.classList.add('note__save-btn')
+        // closeButton.innerHTML = '<span class="icon-floppy"></span>'
+        //
+        // const noteHeader = document.createElement('div')
+        // noteHeader.classList.add('note__header')
+        //
+        //
+        // const noteContent = document.createElement('textarea')
+        // noteContent.classList.add('note__content')
+        // noteContent.value = this.content
+        //
+        // const note = document.createElement('li')
+        // note.classList.add('note')
+        // note.append(noteTitle)
+        // note.append(noteContent)
         const note = document.createElement('li')
         note.classList.add('note')
-        note.append(noteHeader)
-        note.append(noteContent)
+        note.innerHTML = `
+            <div class="note__header">
+                <input type="text" class="note__title">
+                <button class="note__save-btn"><span class="icon-floppy"></span></button>
+            </div>
+            <textarea class="note__content">${this.content}</textarea>
+        `
+        note.querySelector('.note__title').value = this.title
 
         document.querySelector('.workspace__notes').append(note)
     }

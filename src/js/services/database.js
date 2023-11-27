@@ -18,6 +18,16 @@ async function getData(url) {
     return await res.json()
 }
 
+async function updateData(url, data, id) {
+    return fetch(`${url}/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+}
+
 export function addNote(note) {
     const url = 'http://localhost:3000/notes'
     postData(url, note)
@@ -28,22 +38,17 @@ export function addNote(note) {
         })
 }
 
-export function getPaths() {
-    const url = 'http://localhost:3000/notes?path_like=/'
-    return getData(url)
-}
-
 export function getNotes() {
     const url = 'http://localhost:3000/notes'
     return getData(url)
 }
 
-export async function updateNote(url, note) {
-    return fetch(`${url}/${note['title']}`, {
-        method: 'PUT',
-        headers: {
-            'Content-type': 'application/json'
-        },
-        body: JSON.stringify(note)
-    })
-}
+export function updateNote(note) {
+    const url = 'http://localhost:3000/notes'
+    const id = note['title']
+    updateData(url, note, id)
+        .then(res => {
+            if (!res.ok) {
+                throw new Error(`Could not update ${url}/${id}, status: ${res.status}`)
+            }
+        })}

@@ -4,12 +4,14 @@ import '../sass/style.sass'
 import {navbar} from "./modules/navbar";
 import {notesPanel} from "./modules/notesPanel";
 import {workspaceTabs} from "./modules/workspaceTabs";
+import {workspaceNotes} from "./modules/workspaceNotes";
 
 document.addEventListener('DOMContentLoaded', () => {
 
     navbar()
     notesPanel()
     workspaceTabs()
+    workspaceNotes()
 
 })
 
