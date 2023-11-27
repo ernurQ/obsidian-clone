@@ -3,7 +3,7 @@ import {closeModal} from "./modal";
 import {Note} from "./note";
 import {activateTab} from "../modules/workspaceTabs";
 import {activateNote} from "../modules/workspaceNotes";
-import {addNote, getPaths} from "./database";
+import {addNote} from "./database";
 import {noteExists} from "../modules/notesPanel";
 
 /**

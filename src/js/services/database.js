@@ -33,12 +33,13 @@ export function getPaths() {
     return getData(url)
 }
 
-/**
- * @param {string} url The date
- * @param {Note} note The
- */
+export function getNotes() {
+    const url = 'http://localhost:3000/notes'
+    return getData(url)
+}
+
 export async function updateNote(url, note) {
-    return fetch(`${url}/${note.id}`, {
+    return fetch(`${url}/${note['title']}`, {
         method: 'PUT',
         headers: {
             'Content-type': 'application/json'
