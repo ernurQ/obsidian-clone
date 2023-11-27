@@ -1,4 +1,4 @@
-import {activateNote} from "./workspaceNotes";
+import {activateNote, removeNote} from "./workspaceNotes";
 
 const tabsList = document.querySelector('.tabs-list')
 
@@ -16,6 +16,8 @@ export function workspaceTabs() {
             const tab = target.parentElement
             tab.classList.add('tab_collapsed')
             btn.remove()
+            removeNote(tab.querySelector('.tab__content').textContent)
+
             setTimeout(() => {
                 tab.remove()
             }, 250)
