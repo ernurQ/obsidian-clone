@@ -49,4 +49,8 @@ export class Note {
         this._renderNoteTab()
         this._renderNoteContent()
     }
+    open() {
+        this._renderNoteTab()
+        this._renderNoteContent()
+    }
 }

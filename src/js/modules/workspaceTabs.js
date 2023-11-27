@@ -41,7 +41,7 @@ export function workspaceTabs() {
 }
 
 /**
- * @param {string} title The date
+ * @param {string} title
  */
 export function activateTab(title) {
     const tabs = tabsList.querySelectorAll('.tab')
@@ -54,4 +54,17 @@ export function activateTab(title) {
     })
 
     activateNote(title)
+}
+
+/**
+ * @param {string} title
+ */
+export function isOpenTab(title) {
+    const tabs = tabsList.querySelectorAll('.tab')
+    for (const tab of tabs) {
+        if (tab.querySelector('.tab__content').textContent === title) {
+            return true
+        }
+    }
+    return false
 }
