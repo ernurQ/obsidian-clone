@@ -1,0 +1,57 @@
+.tabs-list
+    display: flex
+    height: 100%
+    margin: 0
+    padding: 0 1px
+    background-color: $second-color
+    border-bottom: 2px solid $border-color
+
+.tab
+    display: flex
+    justify-content: space-between
+    align-items: center
+    position: relative
+    height: 100%
+    width: 20%
+    padding: 0 10px
+    background-color: $main-color
+    transition: 0.2s all
+    border-right: 2px solid $border-color
+    border-top: 2px solid $border-color
+    border-radius: 8px 8px 0 0
+    &_active
+        &::after
+            content: ''
+            display: block
+            height: 4px
+            width: 110%
+            position: absolute
+            left: -5%
+            bottom: -2px
+            z-index: 1
+            border-radius: 2px
+            background-color: $active-tab-color
+    &_collapsed
+        width: 0
+        padding: 0
+        border-right: none
+    &__content
+        display: flex
+        justify-content: start
+        align-items: center
+        height: 100%
+        width: 85%
+        color: $font-color
+        overflow: hidden
+    &__close-btn
+        display: flex
+        justify-content: center
+        align-items: center
+        height: 17px
+        width: 17px
+        border-radius: 100%
+        background-color: $second-color
+        opacity: 0
+        &:hover
+            opacity: 1
+            cursor: pointer

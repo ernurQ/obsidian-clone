@@ -1,0 +1,24 @@
+.navbar
+    display: grid
+    grid-template-rows: 5% 95%
+    height: 100%
+    width: 2%
+    background-color: $second-color
+    &__notes-panel-btn
+        display: flex
+        justify-content: center
+        align-items: center
+        background-color: $main-color
+        border: none
+        border-bottom: 2px solid $border-color
+        &:hover
+            background-color: $second-color
+    &__buttons
+        display: flex
+        flex-direction: column
+        justify-content: end
+        padding: 10px 0
+    &__settings-btn
+        background-color: $second-color
+        border: none
+        font-size: 20px
