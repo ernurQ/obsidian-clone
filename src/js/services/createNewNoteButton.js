@@ -3,6 +3,8 @@ import {closeModal} from "./modal";
 import {Note} from "./note";
 import {activateTab} from "../modules/workspaceTabs";
 import {activateNote} from "../modules/workspaceNotes";
+import {addNote, getPaths} from "./database";
+import {noteExists} from "../modules/notesPanel";
 
 /**
  * @param {HTMLElement} newNoteButton The date
@@ -38,6 +40,9 @@ export function createNewNoteButton(newNoteButton) {
         if (title === '') {
             return
         }
+        if (noteExists(title)) {
+            return
+        }
 
         form.reset()
         closeModal()
@@ -47,5 +52,7 @@ export function createNewNoteButton(newNoteButton) {
 
         activateTab(title)
         activateNote(title)
+
+        addNote(note.getJson())
     })
 }

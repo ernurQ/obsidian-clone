@@ -4,13 +4,13 @@ import {activateTab} from "./workspaceTabs";
 import {activateNote} from "./workspaceNotes";
 import {Note} from "../services/note";
 
-export function notesPanel() {
-    const notesPanel = document.querySelector('.notes-panel')
+const notesPanelHtml = document.querySelector('.notes-panel')
 
-    const newNoteButton = notesPanel.querySelector('.notes-panel__new-note')
+export function notesPanel() {
+    const newNoteButton = notesPanelHtml.querySelector('.notes-panel__new-note')
     createNewNoteButton(newNoteButton)
 
-    const notesList = notesPanel.querySelector('.notes-panel__list')
+    const notesList = notesPanelHtml.querySelector('.notes-panel__list')
     notesList.addEventListener('click', e => {
         /** @type {HTMLElement} */
         const target = e.target
@@ -31,6 +31,16 @@ export function notesPanel() {
             activateNote(title)
         }
     })
+}
 
+export function noteExists(title) {
+    const titles = notesPanelHtml.querySelectorAll('.notes-panel__note')
 
+    for (const t of titles) {
+        if (t.textContent === title) {
+            return true
+        }
+    }
+
+    return false
 }

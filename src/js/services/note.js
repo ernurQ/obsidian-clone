@@ -53,4 +53,11 @@ export class Note {
         this._renderNoteTab()
         this._renderNoteContent()
     }
+    getJson() {
+        return {
+            title: this.title,
+            content: this.content,
+            path: this.path
+        }
+    }
 }
