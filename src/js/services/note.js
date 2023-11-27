@@ -36,7 +36,7 @@ export class Note {
         noteContent.classList.add('note__content')
         noteContent.value = this.content
 
-        const note = document.createElement('div')
+        const note = document.createElement('li')
         note.classList.add('note')
         note.append(noteHeader)
         note.append(noteContent)

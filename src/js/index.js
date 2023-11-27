@@ -3,13 +3,13 @@ import '../sass/style.sass'
 
 import {navbar} from "./modules/navbar";
 import {notesPanel} from "./modules/notesPanel";
-import {tabsList} from "./modules/tabsList";
+import {workspaceTabs} from "./modules/workspaceTabs";
 
 document.addEventListener('DOMContentLoaded', () => {
 
     navbar()
     notesPanel()
-    tabsList()
+    workspaceTabs()
 
 })
 

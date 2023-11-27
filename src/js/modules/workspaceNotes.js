@@ -1,6 +1,6 @@
-const workspaceNotes = document.querySelector('.workspace__notes')
+const notesList = document.querySelector('.workspace__notes')
 
-export function workspace() {
+export function workspaceNotes() {
 
 }
 
@@ -8,7 +8,7 @@ export function workspace() {
  * @param {string} title The date
  */
 export function activateNote(title) {
-    const notes = workspaceNotes.querySelectorAll('.note')
+    const notes = notesList.querySelectorAll('.note')
     notes.forEach(tab => {
         if (tab.querySelector('.note__header').value === title) {
             tab.classList.add('note_active')

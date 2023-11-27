@@ -1,8 +1,9 @@
-import {activateNote} from "./workspace";
+import {activateNote} from "./workspaceNotes";
 
-export function tabsList() {
-    const tabsList = document.querySelector('.tabs-list')
+const tabsList = document.querySelector('.tabs-list')
 
+
+export function workspaceTabs() {
     tabsList.addEventListener('click', e => {
         /** @type {HTMLElement} */
         const target = e.target
@@ -26,27 +27,29 @@ export function tabsList() {
             if (tab.classList.contains('tab_active')) {
                 return
             }
-            activateTab(target.parentElement)
+            activateTab(target.textContent)
         }
         if (target.classList.contains('tab')) {
             if (target.classList.contains('tab_active')) {
                 return
             }
-            activateTab(target)
+            activateTab(target.textContent)
         }
     })
-
-    /**
-     * @param {HTMLElement} tab The date
-     */
-    function activateTab(tab) {
-        const tabs = tabsList.querySelectorAll('.tab')
-        tabs.forEach(tab => {
-            tab.classList.remove('tab_active')
-        })
-        tab.classList.add('tab_active')
-
-        activateNote(tab.querySelector('.tab__content').textContent)
-    }
 }
 
+/**
+ * @param {string} title The date
+ */
+export function activateTab(title) {
+    const tabs = tabsList.querySelectorAll('.tab')
+    tabs.forEach(tab => {
+        if (tab.querySelector('.tab__content').textContent === title) {
+            tab.classList.add('tab_active')
+            return
+        }
+        tab.classList.remove('tab_active')
+    })
+
+    activateNote(title)
+}
