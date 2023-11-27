@@ -35,7 +35,7 @@ export function workspaceTabs() {
             if (target.classList.contains('tab_active')) {
                 return
             }
-            activateTab(target.textContent)
+            activateTab(target.querySelector('.tab__content').textContent)
         }
     })
 }
