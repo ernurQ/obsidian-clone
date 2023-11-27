@@ -1,6 +1,7 @@
 import {openModal} from "./modal";
 import {closeModal} from "./modal";
 import {Note} from "./note";
+import {activateNote} from "../modules/workspace";
 
 /**
  * @param {HTMLElement} newNoteButton The date
@@ -42,5 +43,6 @@ export function createNewNoteButton(newNoteButton) {
 
         const note = new Note(title, '', path)
         note.render()
+        activateNote(title)
     })
 }

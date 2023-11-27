@@ -1,3 +1,5 @@
+import {activateNote} from "./workspace";
+
 export function tabsList() {
     const tabsList = document.querySelector('.tabs-list')
 
@@ -43,6 +45,8 @@ export function tabsList() {
             tab.classList.remove('tab_active')
         })
         tab.classList.add('tab_active')
+
+        activateNote(tab.querySelector('.tab__content').textContent)
     }
 }
 
